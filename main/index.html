@@ -1,87 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../src/output.css" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-  <nav class="bg-white shadow">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 justify-between">
-        <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
-          <!-- Mobile menu button -->
-          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Open main menu</span>
-            <!--
-              Icon when menu is closed.
-  
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!--
-              Icon when menu is open.
-  
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div class="flex flex-1 items-center justify-right sm:items-stretch sm:justify-start">
-          <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="/img/HRMSLogo.png" alt="Your Company">
-          </div>
-          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a href="#" class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">Home Desktop</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Products</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Resource</a>
-            <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Pricing</a>
-          </div>
-        </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        
-  
-          <!-- Profile dropdown -->
-          <div class="relative ml-3" id="prof">
-            <div>
-              <button type="button" class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
-                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </button>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+        <link href="../src/output.css" rel="stylesheet">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <nav class="drop-shadow-lg">
+                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                    <div class="relative flex h-16 justify-between">
+                        <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
+                            <button
+                                type="button"
+                                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                                aria-controls="mobile-menu"
+                                aria-expanded="false"
+                            >
+                                <span class="absolute -inset-0.5"></span>
+                                <span class="sr-only">Open main menu</span>
+                                <svg
+                                    class="block h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex flex-1 items-center justify-right sm:items-stretch sm:justify-start">
+                            <div class="flex flex-shrink-0 items-center">
+                                <img class="h-8 w-auto" src="/img/HRMSLogo.svg" alt="Your Company">
+                            </div>
+                            <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                                <a href="#" class="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900">Home Desktop</a>
+                                <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Products</a>
+                                <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Resource</a>
+                                <a href="#" class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">Pricing</a>
+                            </div>
+                        </div>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <div class="hidden relative ml-3 md:block" id="prof">
+                                <div>
+                                    <button
+                                        type="button"
+                                        class="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                        id="user-menu-button"
+                                        aria-expanded="false"
+                                        aria-haspopup="true"
+                                    >
+                                        <span class="absolute -inset-1.5"></span>
+                                        <span class="sr-only">Open user menu</span>
+                                        <img class="h-8 w-8 rounded-full" src="..//img/femaleprofile.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="px-6 py-24 sm:pt-32 sm:pb-16 lg:px-8">
+                <div class="mx-auto max-w-2xl text-center">
+                    <div class="mb-5">
+                        <span class="inline-flex items-center rounded-full bg-primary px-2 py-1 text-xs font-medium text-green-700">
+                            <span class="bg-white text-green-700 rounded-md px-1.5 mr-2">New Feature</span>
+                            Check out the team dashboard
+                            <i class="fa-solid fa-arrow-right ml-2 text-arrow"></i>
+                        </span>
+                    </div>
+                    <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Beautiful Analytics to grow smarter</h2>
+                    <p class="mt-10 mb-10 text-lg leading-8 text-gray-600">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
+                </div>
+                <div class="flex justify-center flex-col-reverse md:flex-row-reverse mt-7">
+                    <button type="button" class="rounded-md bg-white flex-1 md:flex-none mb-3 order-1 md:order-2 px-3.5 py-2.5 md:mr-2 text-lg md:text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ">
+                        <i class="fa-light fa-circle-play pr-1"></i>
+                        Demo
+                    </button>
+                    <button type="button" class="rounded-md bg-btngreen flex-1 md:flex-none mb-3 order-2 md:order-1 px-3.5 py-2.5 text-lg md:text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-green-800">Sign Up</button>
+                </div>
+                <div class="mx-auto my-10 max-w-7xl px-6 lg:px-8 md:hidden">
+                    <img src="../img/macbookpro16full.svg" alt="Macbook Pro 16">
+                </div>
+                <div class="hidden justify-center md:flex mt-20 mb-20">
+                    <img src="../img/macbookscreen.svg" alt="">
+                </div>
+                <div class="mx-auto max-w-2xl text-center">
+                    <p class="text-textgray">Join 4,000+ companies already growing</p>
+                </div>
+                <div class="mx-auto max-w-7xl px-4">
+                    <!-- Content goes here -->
+                    <div class="grid gap-x-10 gap-y-10 grid-cols-2 justify-center md:grid-cols-5 mt-10">
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:order-1" src="../img/layerspng.svg" alt="">
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:order-2" src="../img/sisyphuspng.svg" alt="">
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:order-3" src="../img/circoolespng.svg" alt="">
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:order-4" src="../img/catalogpng.svg" alt="">
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:order-5" src="../img/quotientpng.svg" alt="">
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <img class="mb-4 w-56 md:hidden" src="../img/hourglasspng.svg" alt="">
+                        </div>
+                    </div>
+                  </div>
             </div>
-  
-            <!--
-              Dropdown menu, show/hide based on menu state.
-  
-              Entering: "transition ease-out duration-200"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-          </div>
         </div>
-      </div>
-    </div>
-    <!-- Mobile menu, show/hide based on menu state. -->
-  </nav>
-  </header>
-  <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700"><span class="bg-white text-green-600 rounded-md space-x-2">New Feature</span>Check out the team dashboard</span>
-      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Beautiful Analytics to grow smarter</h2>
-      <p class="mt-6 text-lg leading-8 text-gray-600">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
-    </div>
-  </div>
-</body>
+        <div class="relative mx-5 md:mx-80">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+        </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center mt-20 mb-24">
+                <h4 class="text-green-800 text-lg font-medium">Features</h4>
+                <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl my-5">Analytics that feels like it’s from the future</h2>
+                <div class="mx-auto max-w-2xl text-center">
+                    <p class="text-gray-600">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
+                </div>
+            </div>
+            <div>
+                <div class="grid gap-x-10 gap-y-10 grid-cols-1 md:grid-cols-3 text-center mb-20">
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/iconemail.svg" alt="Envelope Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Share team inboxes</h5>
+                        <p class="text-gray-600">Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+                    </div>
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/iconenergy.svg" alt="Energy Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Deliver instant answers</h5>
+                        <p class="text-gray-600">An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
+                    </div>
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/icongraph.svg" alt="Graph Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Manage your team with reports</h5>
+                        <p class="text-gray-600">Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.</p>
+                    </div>
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/iconsmile.svg" alt="Smile Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Connect with customers</h5>
+                        <p class="text-gray-600">Solve a problem or close a sale in real-time with chat. If no one is available, customers are seamlessly routed to email without confusion.</p>
+                    </div>
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/iconspiralbox.svg" alt="Box Spiral Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Connect the tools you already use</h5>
+                        <p class="text-gray-600">Explore 100+ integrations that make your day-to-day workflow more efficient and familiar. Plus, our extensive developer tools.</p>
+                    </div>
+                    <div class="flex justify-center flex-col">
+                        <div class="mx-auto w-14">
+                            <img src="../img/iconpopupmessage.svg" alt="Message Icon">
+                        </div>
+                        <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Our people make the difference</h5>
+                        <p class="text-gray-600">We’re an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-100 px-6 py-24 sm:py-32 lg:px-8 text-center justify-center">
+            <div class="mx-auto max-w-2xl flex justify-center">
+                <img src="../img/sisyphuspng.svg" alt="">
+            </div>
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-10">
+                <!-- Content goes here -->
+                <h2 class="text-3xl font-light tracking-tight text-gray-900 sm:text-6xl">We’ve been using Untitled to kick start every new project and can’t imagine working without it.</h2>
+            </div>
+            <div class="mx-auto max-w-2xl flex justify-center mt-14 mb-7">
+                <img src="../img/avatar2.svg" alt="">
+            </div>
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <!-- Content goes here -->
+                <h2 class="text-xl">Candice Wu</h2>
+                <p class="text-gray-600 mt-2">Product Manager, Sisyphus</p>
+            </div>
+        </div>
+        <div class="px-6 py-24 sm:py-32 lg:px-8 text-center justify-center">
+            <div class="mb-5">
+                <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700">Features</span>
+                <div class="text-center mt-4">
+                    <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl my-5">Cutting-edge features for advanced analytics</h2>
+                    <div class="mx-auto max-w-2xl text-center">
+                        <p class="text-gray-600">Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
+                    </div>
+                </div>
+                <div class="hidden justify-center md:flex mt-20">
+                    <img src="../img/phonewithUI.svg" alt="">
+                </div>
+                <div class="justify-center md:hidden mt-20 mb-10">
+                    <img src="../img/phonegraph.svg" alt="">
+                </div>
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="grid gap-x-10 gap-y-10 grid-cols-1 md:grid-cols-3 text-center">
+                        <div class="flex justify-center flex-col">
+                            <div class="mx-auto w-14">
+                                <img src="../img/iconemail.svg" alt="Envelope Icon">
+                            </div>
+                            <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Share team inboxes</h5>
+                            <p class="text-gray-600">Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+                            <p class="text-green-700 mt-8">
+                                Learn More
+                                <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </p>
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <div class="mx-auto w-14">
+                                <img src="../img/iconenergy.svg" alt="Energy Icon">
+                            </div>
+                            <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Deliver instant answers</h5>
+                            <p class="text-gray-600">An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
+                            <p class="text-green-700 mt-8">
+                                Learn More
+                                <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </p>
+                        </div>
+                        <div class="flex justify-center flex-col">
+                            <div class="mx-auto w-14">
+                                <img src="../img/icongraph.svg" alt="Graph Icon">
+                            </div>
+                            <h5 class="text-lg font-medium tracking-tight text-gray-900 sm:text-xl my-5 text-center">Manage your team with reports</h5>
+                            <p class="text-gray-600">Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.</p>
+                            <p class="text-green-700 mt-8">
+                                Learn More
+                                <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative mx-5 md:mx-80">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+        </div>
+        <div>
+            <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-20">
+                <div class="mx-auto max-w-4xl">
+                    <div class="text-center mb-14">
+                        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl my-5">Frequently asked questions</h2>
+                        <div class="mx-auto max-w-2xl text-center">
+                            <p class="text-gray-600">Everything you need to know about the product and billing.</p>
+                        </div>
+                    </div>
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-6">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">Is there a free trial available?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-minus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                            <dd class="mt-2 pr-12" id="faq-0">
+                                <p class="text-base leading-7 text-gray-600">Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.</p>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="relative md:mx-40 mt-10 mb-10">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-6">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">Can I change my plan later?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-plus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                        </div>
+                    </dl>
+                </div>
+                <div class="relative md:mx-40 mt-6 mb-10">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-2">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">What is your cancellation policy?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-plus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                        </div>
+                    </dl>
+                </div>
+                <div class="relative md:mx-40 mt-6 mb-10">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-2">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">Can other info be added to an invoice?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-plus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                        </div>
+                    </dl>
+                </div>
+                <div class="relative md:mx-40 mt-6 mb-10">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-2">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">How does billing work?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-plus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                        </div>
+                    </dl>
+                </div>
+                <div class="relative md:mx-40 mt-6 mb-10">
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-4xl">
+                    <dl class="space-x-6 divide-x">
+                        <div class="pt-2">
+                            <dt>
+                                <button
+                                    type="button"
+                                    class="flex w-full items-start justify-between text-left text-gray-900"
+                                    aria-controls="faq-0"
+                                    aria-expanded="false"
+                                >
+                                    <span class="text-base font-semibold md:font-semibold leading-7">How do I change my account email?</span>
+                                    <span class="ml-6 flex h-7 items-center">
+                                        <i class="text-green-800 fa-regular fa-circle-plus"></i>
+                                    </span>
+                                </button>
+                            </dt>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <div class="px-6">
+                <div class="bg-slate-100 rounded-xl mx-auto max-w-7xl px-6 py-8 text-center">
+                    <div class="flex -space-x-2 justify-center">
+                        <img class="inline-block z-10 mt-2.5 h-10 w-10 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="inline-block z-20 h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="inline-block z-10 mt-2.5 h-10 w-10 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                    </div>
+                    <h2 class="text-2xl font-normal tracking-tight text-gray-900 mt-5">Still have questions?</h2>
+                    <p class="mx-auto mt-6 text-lg font-light text-gray-600">Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <a href="#" class="rounded-md bg-btngreen px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-800">Get in touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative mx-5 md:mx-80 pb-32">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+        </div>
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 pt-5">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <h2 class="font-medium text-green-800">Launch Faster</h2>
+                    <p class="mt-2 text-3xl font-medium tracking-tight text-gray-900 sm:text-3xl">Build something great</p>
+                    <p class="text-lg mt-4 text-gray-500">We’ve done all the heavy lifting so you don’t have to — get all the data you need to launch and grow your business faster.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-10">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                <div>
+                    <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8 text-center">
+                        <div>
+                            <h2 class="text-5xl mb-4 font-medium tracking-tight text-green-700 sm:text-5xl">4,000+</h2>
+                            <dt class="font-normal text-gray-900">Global customers</dt>
+                            <dd class="mt-2 text-gray-500">We’ve helped over 4,000 amazing global companies.</dd>
+                        </div>
+                        <div>
+                            <h2 class="text-5xl mb-4 font-medium tracking-tight text-green-700 sm:text-5xl">600%</h2>
+                            <dt class="font-normal text-gray-900">Return on investment</dt>
+                            <dd class="mt-2 text-gray-500">Our customers have reported an average of ~600% ROI.</dd>
+                        </div>
+                        <div>
+                            <h2 class="text-5xl mb-4 font-medium tracking-tight text-green-700 sm:text-5xl">10k</h2>
+                            <dt class="font-normal text-gray-900">Global downloads</dt>
+                            <dd class="mt-2 text-gray-500">Our app has been downloaded over 10k times.</dd>
+                        </div>
+                        <div>
+                            <h2 class="text-5xl mb-4 font-medium tracking-tight text-green-700 sm:text-5xl">200+</h2>
+                            <dt class="font-normal text-gray-900">5-star reviews</dt>
+                            <dd class="mt-2 text-gray-500">We’re proud of our 5-star rating with over 200 reviews.</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="grid grid-cols-1 grid-rows-1 gap-4 sm:gap-6 lg:gap-8">
+                    <img src="../img/indoorwithboard.svg" alt="Indoor with board">
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-100 pt-1 pb-20">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 mt-20">
+                <!-- Content goes here -->
+                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+                    <!-- Content goes here -->
+                    <h2 class="text-2xl font-normal tracking-tight text-gray-900 mt-5">Start your free trial</h2>
+                    <p class="mx-auto mt-6 text-lg font-light text-gray-600">Join over 4,000+ startups already growing with Untitled.</p>
+                    <div class="flex justify-center flex-col-reverse md:flex-row-reverse mt-7">
+                        <button type="button" class="rounded-md bg-white flex-1 md:flex-none mb-3 order-1 md:order-2 px-3.5 py-2.5 md:mr-2 text-lg md:text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ">Learn more</button>
+                        <button type="button" class="rounded-md bg-btngreen flex-1 md:flex-none mb-3 order-2 md:order-1 px-3.5 py-2.5 text-lg md:text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-green-800">Get started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white" aria-labelledby="footer-heading">
+            <h2 id="footer-heading" class="sr-only">Footer</h2>
+            <div class="mx-auto max-w-7xl px-6 pb-12 sm:pt-14 sm:pb-8 md:px-8 md:pt-24 md:pb-18">
+                <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                    <div class="mt-16 grid gap-8 xl:col-span-6 xl:mt-0">
+                        <div class="grid grid-cols-2 md:grid md:grid-cols-6 md:gap-8">
+                            <div class="mb-10">
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Product</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Features</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Solutions</a>
+                                        <span class="inline-flex items-center rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-700 ml-1">New</span>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Tutorials</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Pricing</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Releases</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-10">
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Company</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Careers</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Press</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">News</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Media kit</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-10">
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Resources</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">News letter</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Help centre</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Tutorials</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-10">
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Use cases</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">Startups</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Enterprise</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Government</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">SaaS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Marketplaces</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Ecommerce</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Social</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">Twitter</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">LinkedIn</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Facebook</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">GitHub</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">AngelList</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Dribble</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold leading-6 text-textgray">Legal</h3>
+                                <ul role="list" class="mt-6 space-y-4">
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-700 hover:text-textgray">Terms</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Privacy</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Cookies</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Licenses</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-base leading-6 text-gray-900 hover:text-gray-900">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+                    <div class="flex space-x-6 md:order-1">
+                        <img src="../img/HRMSLogo.svg" alt="">
+                    </div>
+                    <p class="mt-8 text-xs leading-5 text-gray-500 md:order-2 md:mt-0">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>
